@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Тренажёры - SportShop</title>
+  <link rel="stylesheet" href="trainers.css" />
+  <link rel="shortcut icon" href="images/free-icon-gift-shop-2718506.png" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <h1>Категория: Тренажёры</h1>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </header>
+
+  <section class="filter">
+    <a href="catalog.html">Все</a>
+    <a href="clothes.html">Одежда</a>
+    <a href="trainers.html">Тренажёры</a>
+    <a href="accessories.html">Аксессуары</a>
+  </section>
+
+  <section class="products">
+    <div class="product">
+      <img src="images/дорожка.png" width="220px" height="220px" alt="Беговая дорожка" />
+      <h3>Беговая дорожка</h3>
+      <p>Цена: 196 000 ₸</p>
+      <button onclick="buyTreadmill()">Купить</button>
+    </div>
+    <div class="product">
+      <img src="images/гребной.png" width="220px" height="220px" alt="Гребной тренажёр" />
+      <h3>Гребной тренажёр</h3>
+      <p>Цена: 122 000 ₸</p>
+      <button onclick="buyRowingMachine()">Купить</button>
+    </div>
+    <div class="product">
+      <img src="images/велосипед.png" width="220px" height="220px" alt="Велотренажёр" />
+      <h3>Велотренажёр</h3>
+      <p>Цена: 145 000 ₸</p>
+      <button onclick="buyExerciseBike()">Купить</button>
+    </div>
+    <div class="product">
+      <img src="images/тренажеррр.png" width="220px" height="220px" alt="Эллиптический тренажёр" />
+      <h3>Эллиптический тренажёр</h3>
+      <p>Цена: 163 000 ₸</p>
+      <button onclick="buyElliptical()">Купить</button>
+    </div>
+    <div class="product">
+      <img src="images/для преса.png" width="220px" height="220px" alt="Тренажёр для пресса" />
+      <h3>Тренажёр для пресса</h3>
+      <p>Цена: 177 000 ₸</p>
+      <button onclick="buyAbsTrainer()">Купить</button>
+    </div>
+    <div class="product">
+      <img src="images/болшой.png" width="220px" height="220px" alt="Многофункциональный тренажёр" />
+      <h3>Многофункциональный тренажёр</h3>
+      <p>Цена: 289 990 ₸</p>
+      <button onclick="buyMultiTrainer()">Купить</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 SportShop. Все права защищены.</p>
+  </footer>
+
+  <script>
+function openOrderForm(productName, size = "") {
+  const fullName = size ? `${productName} (размер: ${size})` : productName;
+  document.getElementById("order-product").value = fullName;
+  document.getElementById("order-modal").style.display = "flex";
+}
+
+function closeOrderForm() {
+  document.getElementById("order-modal").style.display = "none";
+}
+
+function submitOrder() {
+  alert("Спасибо! Ваш заказ принят.");
+  closeOrderForm();
+  return false;
+}
+function buyTreadmill() {
+  openOrderForm("Беговая дорожка");
+}
+function buyRowingMachine() {
+  openOrderForm("Гребной тренажёр");
+}
+function buyExerciseBike() {
+  openOrderForm("Велотренажёр");
+}
+function buyElliptical() {
+  openOrderForm("Эллиптический тренажёр");
+}
+function buyAbsTrainer() {
+  openOrderForm("Тренажёр для пресса");
+}
+function buyMultiTrainer() {
+  openOrderForm("Многофункциональный тренажёр");
+}
+</script>
+
+
+<div id="order-modal" class="modal">
+  <form onsubmit="return submitOrder()" class="order-form">
+    <h2>Оформление заказа</h2>
+
+    <input id="order-product" name="product" readonly>
+
+    <input name="name" placeholder="Ваше имя" required>
+    <input name="phone" placeholder="Номер телефона" required>
+    <textarea name="address" placeholder="Адрес доставки" required></textarea>
+
+    <button type="submit">Оформить заказ</button>
+    <button type="button" onclick="closeOrderForm()">Отмена</button>
+  </form>
+</div>
+
+</body>
+</html>

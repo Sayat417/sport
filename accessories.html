@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Аксессуары - SportShop</title>
+  <link rel="stylesheet" href="accessories.css" />
+  <link rel="shortcut icon" href="images/free-icon-gift-shop-2718506.png" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <h1>Категория: Аксессуары</h1>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </header>
+
+<section class="filter">
+    <a href="catalog.html">Все</a>
+    <a href="clothes.html">Одежда</a>
+    <a href="trainers.html">Тренажёры</a>
+    <a href="accessories.html">Аксессуары</a>
+  </section>
+
+  <section class="products">
+    <div class="product">
+      <img src="images/1.png" width="220px" height="220px" alt="Бутылка для воды" />
+      <h3>Бутылка для воды</h3>
+      <p>Цена: 2 000 ₸</p>
+      <button onclick="buyWaterBottleOther()">Купить</button>
+    </div>
+    <div class="product">
+      <img src="images/2.png" width="220px" height="220px" alt="Спортивная сумка" />
+      <h3>Спортивная сумка</h3>
+      <p>Цена: 6 500 ₸</p>
+      <button onclick="buySportsBag()">Купить</button>
+    </div>
+    <div class="product">
+      <img src="images/3.png" width="220px" height="220px" alt="Напульсники" />
+      <h3>Напульсники</h3>
+      <p>Цена: 1 200 ₸</p>
+      <button onclick="buyWristbands()">Купить</button>
+    </div>
+    <div class="product">
+      <img src="images/4.png" width="220px" height="220px" alt="Скакалка" />
+      <h3>Скакалка</h3>
+      <p>Цена: 1 800 ₸</p>
+      <button onclick="buyJumpRope()">Купить</button>
+    </div>
+    <div class="product">
+      <img src="images/5.png" width="220px" height="220px" alt="Фитнес-резинка" />
+      <h3>Фитнес-резинка</h3>
+      <p>Цена: 1 500 ₸</p>
+       <button onclick="buyFitnessBand()">Купить</button>
+    </div>
+    <div class="product">
+      <img src="images/6.png" width="220px" height="220px" alt="Повязка на голову" />
+    <h3>Повязка на голову</h3>
+      <p>Цена: 1 000 ₸</p>
+      <button onclick="buyHeadband()">Купить</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 SportShop. Все права защищены.</p>
+  </footer>
+
+<script>
+function openOrderForm(productName, size = "") {
+  const fullName = size ? `${productName} (размер: ${size})` : productName;
+  document.getElementById("order-product").value = fullName;
+  document.getElementById("order-modal").style.display = "flex";
+}
+
+function closeOrderForm() {
+  document.getElementById("order-modal").style.display = "none";
+}
+
+function submitOrder() {
+  alert("Спасибо! Ваш заказ принят.");
+  closeOrderForm();
+  return false;
+}
+function buyWaterBottleOther() {
+  openOrderForm("Бутылка для воды");
+}
+function buySportsBag() {
+  openOrderForm("Спортивная сумка");
+}
+function buyWristbands() {
+  openOrderForm("Напульсники");
+}
+function buyJumpRope() {
+  openOrderForm("Скакалка");
+}
+function buyFitnessBand() {
+  openOrderForm("Фитнес-резинка");
+}
+function buyHeadband() {
+  openOrderForm("Повязка на голову");
+}
+</script>
+  
+
+<div id="order-modal" class="modal">
+  <form onsubmit="return submitOrder()" class="order-form">
+    <h2>Оформление заказа</h2>
+
+    <input id="order-product" name="product" readonly>
+
+    <input name="name" placeholder="Ваше имя" required>
+    <input name="phone" placeholder="Номер телефона" required>
+    <textarea name="address" placeholder="Адрес доставки" required></textarea>
+
+    <button type="submit">Оформить заказ</button>
+    <button type="button" onclick="closeOrderForm()">Отмена</button>
+  </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Каталог - SportShop</title>
+  <link rel="stylesheet" href="catalog.css">
+  <link rel="shortcut icon" href="images/free-icon-gift-shop-2718506.png" type="image/x-icon">
+</head>
+<body>
+
+  <header>
+    <h1>Каталог SportShop</h1>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </header>
+
+  <section class="filter">
+    <a href="catalog.html">Все</a>
+    <a href="clothes.html">Одежда</a>
+    <a href="trainers.html">Тренажёры</a>
+    <a href="accessories.html">Аксессуары</a>
+  </section>
+
+  <section class="products">
+    <div class="product">
+      <img src="images/айрмакс.png" width="220px" height="220px" alt="Nike Air Max">
+      <h3>Кроссовки Nike Air Max</h3>
+      <p>Цена: 28 990 ₸</p>
+      <label>Размер:</label>
+      <select id="size-airmax">
+  <option value="38">38</option>
+  <option value="39">39</option>
+  <option value="40">40</option>
+  <option value="41">41</option>
+  <option value="42">42</option>
+</select>
+<button onclick="buyAirMax()">Купить</button>
+    </div>
+    <div class="product">
+      <img src="images/гантел.png" width="220px" height="220px" alt="Гантели">
+      <h3>Гантели 5 кг (пара)</h3>
+      <p>Цена: 3 890 ₸</p>
+      <button onclick="buyDumbbells()">Купить</button>
+    </div>
+    <div class="product">
+      <img src="images/джабулани.png" width="220px" height="220px" alt="Мяч">
+      <h3>Футбольный мяч Adidas</h3>
+      <p>Цена: 6 990 ₸</p>
+      <button onclick="buyFootball()">Купить</button>
+  </select>
+    </div>
+    <div class="product">
+      <img src="images/резинки.png" width="220px" height="220px" alt="Фитнес-резинки">
+      <h3>Набор фитнес-резинок</h3>
+      <p>Цена: 6 200 ₸</p>
+      <button onclick="buyFitnessBands()">Купить</button>
+    </div>
+    <div class="product">
+      <img src="images/1 литр.png" width="220px" height="220px" alt="Бутылка для воды">
+      <h3>Бутылка для воды 1л</h3>
+      <p>Цена: 2 690 ₸</p>
+      <button onclick="buyWaterBottle()">Купить</button>
+    </div>
+    <div class="product">
+      <img src="images/тренка.png" width="220px" height="220px" alt="Тренажёр">
+      <h3>Домашний тренажёр</h3>
+      <p>Цена: 174 990 ₸</p>
+      <button onclick="buyHomeTrainer()">Купить</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 SportShop. Все права защищены.</p>
+  </footer>
+
+<script>
+function openOrderForm(productName, size = "") {
+  const fullName = size ? `${productName} (размер: ${size})` : productName;
+  document.getElementById("order-product").value = fullName;
+  document.getElementById("order-modal").style.display = "flex";
+}
+
+function closeOrderForm() {
+  document.getElementById("order-modal").style.display = "none";
+}
+
+function submitOrder() {
+  alert("Спасибо! Ваш заказ принят.");
+  closeOrderForm();
+  return false;
+}
+function buyAirMax() {
+  const size = document.getElementById("size-airmax").value;
+  openOrderForm("Кроссовки Nike Air Max", size);
+}
+function buyDumbbells() {
+  openOrderForm("Гантели 5 кг (пара)");
+}
+function buyFootball() {
+  openOrderForm("Футбольный мяч Adidas");
+}
+function buyFitnessBands() {
+  openOrderForm("Набор фитнес-резинок");
+}
+function buyWaterBottle() {
+  openOrderForm("Бутылка для воды 1л");
+}
+function buyHomeTrainer() {
+  openOrderForm("Домашний тренажёр");
+}
+</script>
+
+
+<div id="order-modal" class="modal">
+  <form onsubmit="return submitOrder()" class="order-form">
+    <h2>Оформление заказа</h2>
+
+    <input id="order-product" name="product" readonly>
+
+    <input name="name" placeholder="Ваше имя" required>
+    <input name="phone" placeholder="Номер телефона" required>
+    <textarea name="address" placeholder="Адрес доставки" required></textarea>
+
+    <button type="submit">Оформить заказ</button>
+    <button type="button" onclick="closeOrderForm()">Отмена</button>
+  </form>
+</div>
+
+</body>
+</html>

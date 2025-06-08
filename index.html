@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>SportShop</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="images/free-icon-gift-shop-2718506.png" type="image/x-icon">
+</head>
+<body>
+
+  <header>
+    <h1>SportShop</h1>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Добро пожаловать в наш спортивный магазин!</h2>
+    <p>Лучшие товары для спорта по доступным ценам.</p>
+  </section>
+
+  <section class="products">
+  <div class="product">
+    <img src="images/кросы.png" width="220px" height="220px" alt="Товар 1">
+    <h3>Кроссовки Nike</h3>
+    <p>Цена: 22 000 ₸</p>
+    
+ <select id="size-airmax">
+  <option value="38">38</option>
+  <option value="39">39</option>
+  <option value="40">40</option>
+  <option value="41">41</option>
+  <option value="42">42</option>
+</select>
+<button onclick="buyAirMax()">Купить</button>
+
+
+  </div>
+  <div class="product">
+    <img src="images/футболка.png" width="220px" height="220px" alt="Товар 2">
+    <h3>Футболка Adidas</h3>
+    <p>Цена: 10 000 ₸</p>
+    
+    <label for="size-adidas-shirt">Размер:</label>
+  <select id="size-adidas-shirt">
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <button onclick="buyAdidasShirt()">Купить</button>
+</div>
+
+  </div>
+  <div class="product">
+    <img src="images/мяч.png" width="220px" height="220px" alt="Товар 3">
+    <h3>Мяч для футбола</h3>
+    <p>Цена:  000 ₸</p>
+    
+    <label for="size-football">Размер:</label>
+  <select id="size-football">
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+
+  <button onclick="buyFootball()">Купить</button>
+</div>
+
+  </div>
+  <div class="product">
+    <img src="images/бутыл.png" width="220px" height="220px" alt="Товар 4">
+    <h3>Бутылка для воды</h3>
+    <p>Цена: 2 500 ₸</p>
+     <button onclick="openOrderForm('Бутылка для воды')">Купить</button>
+  </div>
+  <div class="product">
+    <img src="images/шорт.png" width="220px" height="220px" alt="Товар 5">
+    <h3>Шорты Puma</h3>
+    <p>Цена: 7 000 ₸</p>
+    
+    <label for="size-shorts">Размер шорт:</label>
+  <label for="size-puma-shorts">Размер:</label>
+  <select id="size-puma-shorts">
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+
+  <button onclick="buyPumaShorts()">Купить</button>
+</div>
+
+  </div>
+  <div class="product">
+    <img src="images/перч.png" width="220px" height="220px" alt="Товар 6">
+    <h3>Перчатки для зала</h3>
+    <p>Цена: 5 500 ₸</p>
+    <label for="size-gloves">Размер перчаток:</label>
+  <label for="size-gym-gloves">Размер:</label>
+  <select id="size-gym-gloves">
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+  </select>
+
+  <button onclick="buyGymGloves()">Купить</button>
+</div>
+  </div>
+</section>
+
+
+  <footer>
+    <p>&copy; 2025 SportShop. Все права защищены.</p>
+  </footer>
+
+  <script>
+
+function buyAirMax() {
+  const size = document.getElementById("size-airmax").value;
+  openOrderForm("Кроссовки Nike", size);
+}
+
+function buyPumaShorts() {
+  const size = document.getElementById("size-puma-shorts").value;
+  openOrderForm("Шорты Puma", size);
+}
+function openOrderForm(productName, size = "") {
+  const fullName = size ? `${productName} (размер: ${size})` : productName;
+  document.getElementById("order-product").value = fullName;
+  document.getElementById("order-modal").style.display = "flex";
+}
+function buyGymGloves() {
+  const size = document.getElementById("size-gym-gloves").value;
+  openOrderForm("Перчатки для зала", size);
+}
+function buyAdidasShirt() {
+  const size = document.getElementById("size-adidas-shirt").value;
+  openOrderForm("Футболка Adidas", size);
+}
+
+function closeOrderForm() {
+  document.getElementById("order-modal").style.display = "none";
+}
+
+function submitOrder() {
+  alert("Спасибо! Ваш заказ принят.");
+  closeOrderForm();
+  return false;
+}
+
+function buyFootball() {
+  const size = document.getElementById("size-football").value;
+  openOrderForm("Мяч для футбола", size);
+}
+
+  function buyShoes() {
+    const size = document.getElementById('size').value;
+    alert(`Вы выбрали: Кроссовки Nike\nРазмер: ${size}\nСпасибо за покупку!`);
+  }
+
+  function buyShirt() {
+    const size = document.getElementById('size-shirt').value;
+    alert(`Вы выбрали: Футболка Adidas\nРазмер: ${size}\nСпасибо за покупку!`);
+  }
+
+  function buyBall() {
+    const size = document.getElementById('size-ball').value;
+    alert(`Вы выбрали: Футбольный мяч\nРазмер: ${size}\nСпасибо за покупку!`);
+  }
+
+  function buyWater() {
+    alert('Вы выбрали: Бутылка воды\nСпасибо за покупку!');
+  }
+
+  function buyShorts() {
+    const size = document.getElementById('size-shorts').value;
+    alert(`Вы выбрали: Шорты Puma\nРазмер: ${size}\nСпасибо за покупку!`);
+  }
+
+  function buyGloves() {
+    const size = document.getElementById('size-gloves').value;
+    alert(`Вы выбрали: Перчатки для зала\nРазмер: ${size}\nСпасибо за покупку!`);
+  }
+
+</script>
+
+<div id="order-modal" class="modal">
+  <form onsubmit="return submitOrder()" class="order-form">
+    <h2>Оформление заказа</h2>
+
+    <input id="order-product" name="product" readonly>
+
+    <input name="name" placeholder="Ваше имя" required>
+    <input name="phone" placeholder="Номер телефона" required>
+    <textarea name="address" placeholder="Адрес доставки" required></textarea>
+
+    <button type="submit">Оформить заказ</button>
+    <button type="button" onclick="closeOrderForm()">Отмена</button>
+  </form>
+</div>
+
+</body>
+</html>
