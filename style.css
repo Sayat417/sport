@@ -131,3 +131,42 @@ button:hover {
   background-color: #ccc;
   color: black;
 }
+@media (max-width: 768px) {
+  header, footer {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .hero {
+    padding: 40px 10px;
+  }
+
+  .hero h2 {
+    font-size: 24px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .products {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .product {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  button {
+    width: 100%;
+  }
+}
